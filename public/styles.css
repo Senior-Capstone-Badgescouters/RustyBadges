@@ -1,6 +1,86 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-  }
+h1{
+  margin-top: 70px;
+  text-align: center;
+  font-size: 37px;
+}
+.menu {
+  margin-top: 20px; 
+}
+.menu a {
+  text-decoration: none; 
+  color: #000; 
+  margin-right: 30px; 
+  font-size: 27px;
+}
+.signin-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.signin-button:hover {
+  background-color: #0056b3; 
+}
+.content-container {
+  display: flex;
+  align-items: center;
+  background-color: rgb(207, 239, 250); 
+  padding: 20px;
+}
+.image-container, .text-container {
+  flex: 1;
+  margin-left: 28px;
+  margin-right: 20px;
+}
+.text-container{
+  flex:1;
+  margin-left:20px;
+  font-size: 25px;
+  line-height: 2; 
+
+}
+
+.image-container img {
+  max-width: 500px;
+  height: auto;
+  overflow: hidden; 
+  border-radius: 50%; 
+}
+.contact-container {
+  background-color: rgb(207, 239, 250);
+  border: 1px solid #000000;
+  padding: 30px; 
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 600px; 
+  max-height: 600px;
+}
+.contact-container form {
+  display: grid;
+  gap: 10px;
+}
+.contact-container label {
+  font-weight: bold;
+}
+.contact-container input[type="email"],
+.contact-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+.contact-container button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+

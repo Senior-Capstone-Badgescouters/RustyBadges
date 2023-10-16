@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Girl Scout Badges</title>
+    <title>Contact Us - Girl Scout Badges</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
-
 </head>
 <body>
     <div class="menu">
@@ -16,16 +15,18 @@
         <a href="contact.html">Contact Us</a>
     </div>
     <a class="signin-button" href="signin.html">Sign In</a>
-    <h1>Girl Scout Badges</h1>
+    <h1>Contact Us</h1>
 
-    <div class="content-container">
-        <div class="image-container">
-            <img src="images/badges.jpg" alt="Girl Scout Badges">
-        </div>
-        <div class="text-container">
-            <p>Our mission is to preserve Girl Scout badge history and promote community engagement by archiving retired badges and their requirements.</p>
-        </div>
+    <div class="contact-container">
+        <form action="send_message.php" method="post">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
     </div>
-    
 </body>
 </html>
