@@ -2,10 +2,21 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const dotenv = require('dotenv');
+const { log } = require('console');
 
 const app = express();
 const port = 3000;
 
+
+dotenv.config({ path: './.env' });
+
+const sequelize = require('sequelize');
+const db = new sequelize('postgres', 'postgres', process.env.PASSWORD, { dialect: 'postgres' });
+
+const querier = { user: require('./models/user.model.js'), sequelize: db, Sequelize: sequelize };
+
+log(querier);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
