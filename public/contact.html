@@ -6,6 +6,8 @@
     <title>Contact Us - Girl Scout Badges</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
     <div class="menu">
@@ -16,17 +18,42 @@
     </div>
     <a class="signin-button" href="signin.html">Sign In</a>
     <h1>Contact Us</h1>
-
+    <!-- contact form. -->
     <div class="contact-container">
-        <form method="post" action="/save-feedback">
+        <form method="post" action="/save-feedback" id="feedback-form">
             <label for="email">Your Email:</label>
             <input type="email" id="email" name="email" required>
-
+    
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
-
-            <button type="submit">Send</button>
+    
+            <button type="submit" id="submit-button">Send</button>
         </form>
+    
+        <div id="success-message" style="display: none;">Feedback saved successfully.</div>
     </div>
+    <!-- function to stay on page after submission of contact form  -->
+    <script>
+        $(document).ready(function () {
+            $('#feedback-form').submit(function (e) {
+                e.preventDefault(); 
+                const email = $('#email').val();
+                const message = $('#message').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/save-feedback',
+                    data: { email: email, message: message },
+                    success: function () {
+                        $('#feedback-form').hide();
+                        $('#success-message').show();
+                    },
+                    error: function () {
+                        alert('Error saving feedback.');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
