@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="buttons.css"> 
   <link rel="icon" type="image/png" href="images/logo.png">
   <title>Badge List - Girl Scout Badges</title>
 </head>
@@ -12,8 +13,42 @@
   <a href="about.html">About Us</a>
   <a href="contact.html">Contact Us</a>
 </div>
-<a class="signin-button" href="signin.html">Sign In</a>
 <h1>Brownie Badges</h1>
+<div class="content-container">
+  <div class="level-buttons">
+      <a href="daisy_badges.html">Daisy</a>
+      <a href="brownie_badges.html">Brownie</a>
+      <a href="junior_badges.html">Junior</a>
+      <a href="cadette_badges.html">Cadette</a>
+      <a href="senior_badges.html">Senior</a>
+      <a href="ambassador_badges.html">Ambassador</a>
+  </div>
+</div>
+<table>
+  <tr>
+      <th>Image</th>
+      <th>Badge Name</th>
+      <th>Requirements</th>
+  </tr>
+  <tr>
+      <td><img src="badge1.jpg" alt="Badge 1 Image"></td>
+      <td>Badge 1</td>
+      <td>Requirements for Badge 1</td>
+  </tr>
+  <tr>
+      <td><img src="badge2.jpg" alt="Badge 2 Image"></td>
+      <td>Badge 2</td>
+      <td>Requirements for Badge 2</td>
+  </tr>
+  
+</table>
+</body>
+<footer>
+<button class="button" onclick="addBadge()">Add</button>
+<button class="button" onclick="editBadge()">Edit</button>
+<button class="button" onclick="deleteBadge()">Delete</button>
+
+</footer>
 
 </body>
 </html>

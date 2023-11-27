@@ -1,0 +1,25 @@
+footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button {
+    background-color: #0056b3;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px; 
+  }
+  
+  .button:hover {
+    background-color: #004080;
+  }
+  
