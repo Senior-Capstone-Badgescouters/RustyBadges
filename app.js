@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const sqlite3 = require('sqlite3');
+const open = require('sqlite').open;
 const bodyParser = require('body-parser');
 const fs = require('fs');
 
@@ -9,6 +11,13 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const db = new sqlite3.Database('girlsscout.db');
+
+const get_badges_by_level_proc = db.prepare("select * from badges where \"level\" == (?)")
+
+app.get('/api/get-badges-by-level/:level', (req, res) => {
+  get_badges_by_level_proc.all(req.params.level, (err, badges) => res.json(badges))
+});
 
 app.post('/save-feedback', (req, res) => {
   const email = req.body.email;
