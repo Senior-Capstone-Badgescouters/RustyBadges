@@ -24,30 +24,47 @@
       <a href="ambassador_badges.html">Ambassador</a>
   </div>
 </div>
-<table>
-  <tr>
-      <th>Image</th>
+<!-- Table to display badge details -->
+<table id="badgeTable">
+  <thead>
+    <tr>
       <th>Badge Name</th>
+      <th>Date</th>
+      <th>Description</th>
       <th>Requirements</th>
-  </tr>
-  <tr>
-      <td><img src="badge1.jpg" alt="Badge 1 Image"></td>
-      <td>Badge 1</td>
-      <td>Requirements for Badge 1</td>
-  </tr>
-  <tr>
-      <td><img src="badge2.jpg" alt="Badge 2 Image"></td>
-      <td>Badge 2</td>
-      <td>Requirements for Badge 2</td>
-  </tr>
-  
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody id="badgeTableBody">
+  </tbody>
 </table>
-</body>
-<footer>
-<button class="button" onclick="addBadge()">Add</button>
-<button class="button" onclick="editBadge()">Edit</button>
-<button class="button" onclick="deleteBadge()">Delete</button>
 
-</footer>
+<script>
+  fetch('/badges')
+    .then(response => response.json())
+    .then(badges => {
+      const badgeTableBody = document.getElementById('badgeTableBody');
+
+      const brownieBadges = badges.filter(badge => badge.level === 'Cadette');
+
+      brownieBadges.forEach(badge => {
+        const row = document.createElement('tr');
+        
+        const columns = ['badge_name', 'date', 'description', 'requirements', 'pic_url'];
+        columns.forEach(column => {
+          const cell = document.createElement('td');
+          cell.textContent = badge[column];
+          row.appendChild(cell);
+        });
+
+        badgeTableBody.appendChild(row);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching badge details:', error);
+    });
+</script>
+
 </body>
+
 </html>
