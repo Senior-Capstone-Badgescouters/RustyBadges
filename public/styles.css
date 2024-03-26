@@ -153,6 +153,11 @@ th, td {
 th {
   background-color:  #aed9e0; 
 }
+
+.no-info {
+  background-color: #ffcccc; /* Light red color */
+}
+
 /* test table style for the database above */
 
 /* Edited By Rand*/

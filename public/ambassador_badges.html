@@ -40,15 +40,12 @@
   </tbody>
 </table>
 
-<!-- fetches badges-->
 <script>
-
   fetch('/badges')
     .then(response => response.json())
     .then(badges => {
       const badgeTableBody = document.getElementById('badgeTableBody');
 
-      // Filter badges with level 'Ambassador'
       const brownieBadges = badges.filter(badge => badge.level === 'Ambassador');
 
       brownieBadges.forEach(badge => {
@@ -57,7 +54,25 @@
         const columns = ['badge_name', 'date', 'description', 'requirements', 'pic_url'];
         columns.forEach(column => {
           const cell = document.createElement('td');
-          cell.textContent = badge[column];
+          if (column === 'pic_url') {
+            // Check if the value is null or "No information"
+            if (badge[column] === null || badge[column] === "No information") {
+              cell.textContent = "No information";
+              cell.classList.add('no-info');
+            } else {
+              //display picture
+              const img = document.createElement('img');
+              img.src = badge[column];
+              img.alt = badge['badge_name']; 
+              img.style.width = '100px'; 
+              cell.appendChild(img);
+            }
+          } else {
+            cell.textContent = badge[column] !== null ? badge[column] : "No information";
+            if (badge[column] === "No information") {
+              cell.classList.add('no-info');
+            }
+          }
           row.appendChild(cell);
         });
 
