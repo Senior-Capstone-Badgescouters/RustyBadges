@@ -45,7 +45,7 @@
     .then(badges => {
       const badgeTableBody = document.getElementById('badgeTableBody');
 
-      const brownieBadges = badges.filter(badge => badge.level === 'Senior');
+      const brownieBadges = badges.filter(badge => badge.level === 'Senior ');
 
       brownieBadges.forEach(badge => {
         const row = document.createElement('tr');

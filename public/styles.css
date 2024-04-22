@@ -239,3 +239,17 @@ button:hover {
 .create-account a:hover {
   text-decoration: underline;
 }
+footer .text-container ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+footer .text-container ul li a {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+footer .text-container ul li a:hover {
+  text-decoration: underline; 
+}
